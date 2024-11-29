@@ -48,8 +48,8 @@ export function NavMenu() {
             <Link
               href={item.href}
               className={cn(
-                'hover:text-primary transition-colors',
-                pathname === item.href && 'text-primary font-medium'
+                'text-white/90 hover:text-white transition-colors',
+                pathname === item.href && 'text-white font-medium'
               )}
             >
               {item.title}
@@ -61,7 +61,7 @@ export function NavMenu() {
                   <Link
                     key={child.href}
                     href={child.href}
-                    className="block px-4 py-2 text-sm hover:bg-gray-100"
+                    className="block px-4 py-2 text-sm text-primary hover:text-white hover:bg-primary"
                   >
                     {child.title}
                   </Link>
@@ -74,7 +74,7 @@ export function NavMenu() {
 
       {/* 行動版選單按鈕 */}
       <button
-        className="md:hidden p-2"
+        className="md:hidden p-2 text-white"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
       >
@@ -105,13 +105,13 @@ export function NavMenu() {
       {/* 行動版導航選單 */}
       <div
         className={cn(
-          'fixed inset-0 bg-white z-50 md:hidden transition-transform duration-300',
+          'fixed inset-0 bg-[#0033A0] z-50 md:hidden transition-transform duration-300',
           isOpen ? 'translate-x-0' : 'translate-x-full'
         )}
       >
         <div className="p-4">
           <button
-            className="mb-4"
+            className="mb-4 text-white"
             onClick={() => setIsOpen(false)}
             aria-label="Close menu"
           >
@@ -135,8 +135,8 @@ export function NavMenu() {
                 <Link
                   href={item.href}
                   className={cn(
-                    'block py-2 text-lg',
-                    pathname === item.href && 'text-primary font-medium'
+                    'block py-2 text-lg text-white/90 hover:text-white transition-colors',
+                    pathname === item.href && 'text-white font-medium'
                   )}
                   onClick={() => setIsOpen(false)}
                 >
@@ -148,7 +148,7 @@ export function NavMenu() {
                       <Link
                         key={child.href}
                         href={child.href}
-                        className="block py-1 text-gray-600"
+                        className="block py-1 text-white/80 hover:text-white transition-colors"
                         onClick={() => setIsOpen(false)}
                       >
                         {child.title}

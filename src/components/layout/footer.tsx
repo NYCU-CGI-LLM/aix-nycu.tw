@@ -7,7 +7,10 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* 組織資訊 */}
           <div className="space-y-4">
-            <h3 className="font-bold text-lg">數位教學工作小組</h3>
+            <div className="flex items-center space-x-4">
+                <img src="/nycu-logo.png" alt="NYCU Logo" className="h-16 w-auto" />
+                <h3 className="font-bold text-lg">數位教學工作小組</h3>
+            </div>
             <p className="text-sm">國立陽明交通大學</p>
             <div className="text-sm space-y-2">
               <p>地址：300093 新竹市大學路1001號</p>
