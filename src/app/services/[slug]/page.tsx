@@ -2,11 +2,8 @@ import { PageTransition } from "@/components/transitions/page-transition"
 import { PageLayout } from "@/components/layout/page-layout"
 import { notFound } from "next/navigation"
 
-interface ServicePageProps {
-  params: {
-    slug: string
-  }
-}
+type Params = Promise<{ slug: string }>
+
 
 const services = {
   "ai-assistant": {
@@ -51,7 +48,7 @@ const services = {
   }
 } as const
 
-export default async function ServicePage({ params }: ServicePageProps) {
+export default async function ServicePage({ params }: { params: Params }) {
   const { slug } = await params;
   const service = services[slug as keyof typeof services]
   
