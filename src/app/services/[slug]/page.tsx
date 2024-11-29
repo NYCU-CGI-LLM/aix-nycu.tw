@@ -2,6 +2,12 @@ import { PageTransition } from "@/components/transitions/page-transition"
 import { PageLayout } from "@/components/layout/page-layout"
 import { notFound } from "next/navigation"
 
+interface ServicePageProps {
+  params: {
+    slug: string
+  }
+}
+
 const services = {
   "ai-assistant": {
     title: "AI助手",
@@ -43,10 +49,11 @@ const services = {
       "個性化聲音定制"
     ]
   }
-}
+} as const
 
-export default function ServicePage({ params }: { params: { slug: string } }) {
-  const service = services[params.slug as keyof typeof services]
+export default async function ServicePage({ params }: ServicePageProps) {
+  const { slug } = await params;
+  const service = services[slug as keyof typeof services]
   
   if (!service) {
     notFound()
